@@ -37,7 +37,7 @@ describe('Card Component', () => {
 
   it('renders deal price correctly', () => {
     renderCard();
-    expect(screen.getByText(`€${mockDeal.price}`)).toBeInTheDocument();
+    expect(screen.getByText(`Price per person: €${mockDeal.price}`)).toBeInTheDocument();
   });
 
   it('renders image with correct src and alt attributes', () => {

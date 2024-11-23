@@ -77,7 +77,7 @@ describe('Dashboard Component', () => {
       </MockedProvider>
     );
 
-    const errorMessage = await screen.findByText(/Error: Failed to fetch categories/i);
+    const errorMessage = await screen.findByText(/Failed to fetch categories, Check if the server is running!/i);
     expect(errorMessage).toBeInTheDocument();
   });
 
