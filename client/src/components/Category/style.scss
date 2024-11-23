@@ -1,0 +1,16 @@
+.category {
+    margin-bottom: 40px;
+
+    &__cards {
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 1200px;
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+  }

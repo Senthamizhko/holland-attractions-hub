@@ -1,0 +1,129 @@
+.product-page {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    &__detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding-bottom: 30px;
+        border-bottom: 2px solid #ddd;
+        &__image {
+            max-width: 200px;
+            border-radius: 10px;
+            object-fit: contain;
+            @media (min-width: 700px) {
+                max-width: 400px;
+            }
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            &__header {
+                font-size: 2rem;
+            }
+            &__description {
+
+            }
+
+            &__price {
+                font-size: 1.5rem;
+                color: #6e37fa;
+            }
+
+            &__discount{
+
+            }
+
+            &__expiry {
+
+            }
+
+            &__add-cart {
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                padding: 8px 12px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 14px;
+                width: 100px;
+            }
+        }
+    }
+
+    &__related-products {
+        padding-top: 30px;
+
+        &__header {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        &__list {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+    }
+
+    .category__header {
+      padding-top: 20px;
+    }
+
+}
+.num-persons {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  
+    .num-persons__controls {
+      display: flex;
+      align-items: center;
+  
+      span {
+        margin: 0 10px;
+        font-size: 1.2em;
+      }
+  
+      .num-persons__controls__btn {
+        background-color: #ddd;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  
+  .availability {
+    margin: 10px 0;
+  
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    .availability__datepicker {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }

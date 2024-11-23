@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+Here’s the updated README with the Docker pull instructions for your assignment:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Overview
 
-## Available Scripts
+This repository contains a full-stack web application with both client and server components. The client is a React app, and the server is built with Node.js/Express. The project uses Docker for containerization and Kubernetes (Minikube) for local deployment and orchestration. Additionally, there is a load test script provided using k6.
 
-In the project directory, you can run:
+Project Structure
 
-### `npm start`
+.
+├── client/                 # React frontend application
+│   ├── Dockerfile
+│   ├── package.json        # Frontend dependencies
+│   └── src/                # React app source code=[]
+│   └── deployment/         # Kubernetes deployment files for client
+│
+├── server/                 # Backend Node.js server
+│   ├── Dockerfile
+│   ├── package.json        # Backend dependencies
+│   └── src/                # Server source code
+│   └── deployment/         # Kubernetes deployment files for server
+│
+├── loadtest/               # Load testing folder using k6
+│   └── loadtest.js         # k6 load test script
+│
+└── README.md               # Project documentation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prerequisites
 
-### `npm test`
+Before getting started, you need to have the following tools installed:
+	•	Node.js (v14+)
+	•	Docker (for containerization)
+	•	Minikube (for Kubernetes)
+	•	kubectl (Kubernetes CLI)
+	•	k6 (for load testing)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Setup Instructions
 
-### `npm run build`
+1. Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone <repository-url>
+cd <project-folder>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Running the Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project consists of two parts: Client (React) and Server (Node.js).
 
-### `npm run eject`
+2. Start the Client
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the client, navigate to the client folder and run:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+cd client
+npm install   # Install client dependencies
+npm start     # Start the client in development mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The client will be available at http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the Server
 
-## Learn More
+To start the server, navigate to the server folder and run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd server
+npm install   # Install server dependencies
+npm start     # Start the server (default port: 4000)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The server will be available at http://localhost:4000.
 
-### Code Splitting
+Dockerization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you want to use pre-built Docker images instead of building them yourself, you can pull the images from Docker Hub.
 
-### Analyzing the Bundle Size
+4. Docker Pull & Run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+	1.	Pull the Client Docker image:
 
-### Making a Progressive Web App
+docker pull senthamizhko2024/client:latest
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+	2.	Run the Client Docker container:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+docker run -d -p 8080:80 --name client-container senthamizhko2024/client:latest
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+	3.	Pull the Server Docker image:
 
-### `npm run build` fails to minify
+docker pull senthamizhko2024/server:latest
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+	4.	Run the Server Docker container:
+
+docker run -d -p 4000:4000 --name server-container senthamizhko2024/server:latest
+
+
+
+5. Kubernetes (Minikube)
+
+	1.	Start Minikube:
+
+minikube start
+
+
+	2.	Apply Kubernetes Configurations:
+Once Minikube is running, apply the Kubernetes deployment and service configurations:
+	•	For the client:
+
+kubectl apply -f kubernetes/client-deployment.yaml
+kubectl apply -f kubernetes/client-service.yaml
+
+
+	•	For the server:
+
+kubectl apply -f kubernetes/server-deployment.yaml
+kubectl apply -f kubernetes/server-service.yaml
+
+
+	3.	Check if pods are running:
+
+kubectl get pods
+
+
+	4.	Check if services are available:
+
+kubectl get svc
+
+
+	5.	Access the services:
+	•	Use Minikube Tunnel to access services from outside:
+
+minikube tunnel
+
+
+	•	Or, use:
+
+minikube service <service-name>
+
+
+
+Load Testing with k6
+
+A load testing script is provided in the losstaat folder using k6. It can be used to test the performance of the GraphQL API.
+	1.	Install k6:
+If you don’t have k6 installed, you can install it by following the instructions here.
+	2.	Run the load test:
+Inside the losstaat folder, run the following command to execute the load test:
+
+cd losstaat
+k6 run loadtest.js
+
+This will simulate traffic to the server (running at port 64097 in Minikube) and check for performance.
+
+Additional Notes
+
+	•	The server runs at port 4000, and you can access it from the local Kubernetes service.
+	•	The k6 test will send GraphQL queries to the server to validate if it’s responsive and the data structure is correct.
+	•	To see the results of the load test, k6 will output the results in your terminal with details about the number of requests and response times.
+
+Troubleshooting
+
+If you run into issues while setting up or running the application:
+	•	Docker issues:
+	•	Make sure Docker is running and the Docker daemon is accessible.
+	•	Verify that the correct ports are exposed (e.g., 8080 for the client and 4000 for the server).
+	•	Minikube issues:
+	•	Ensure Minikube is started correctly and that kubectl is configured to use the Minikube context (kubectl config current-context should show minikube).
+	•	Load Testing issues:
+	•	Ensure the server is running and accessible from the load test script by verifying the Minikube service URL.
+
+This updated README now includes the docker pull commands for both the client and server Docker images, making it easier for your interviewers to run the application without building the images themselves.
