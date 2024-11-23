@@ -7,9 +7,8 @@ import './style.scss';
 
 const DashBoard = () => {
   const { loading, error, data } = useQuery(GET_CATEGORIES);
-
   if (loading) return <LoadingState />;
-  if (error) return <p className="error">Error: {error.message}</p>;
+  if (error) return <p className="dashboard__error">{error.message}, Check if the server is running!</p>;
 
   return (
     <div className="dashboard">

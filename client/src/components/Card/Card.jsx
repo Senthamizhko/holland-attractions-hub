@@ -15,7 +15,7 @@ const Card = ({ deal }) => {
         />
         <h3 className="card__header">{deal.name}</h3>
         <p className="card__description">{deal.description}</p>
-        <p className="card__price">€{deal.price}</p>
+        <p className="card__price">Price per Person: €{deal.price}</p>
       </Link>
       <div className="card__actions">
         <Link to={`/product/${deal.id}`} className="card__actions__view-deal">

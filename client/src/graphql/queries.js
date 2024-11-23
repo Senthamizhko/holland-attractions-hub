@@ -10,6 +10,7 @@ export const GET_CATEGORIES = gql`
         name
         description
         detailedDescription
+        expiresAt
         price
         imageUrl
       }
