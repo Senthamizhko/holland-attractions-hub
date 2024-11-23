@@ -49,7 +49,7 @@ const CartPage = () => {
                     {item.name}
                   </h3>
                   <p className="cart-page__items__item__details__price">
-                    Price per Person: €{item.price.toFixed(2)}
+                    Price per person: €{item.price.toFixed(2)}
                   </p>
 
                   {item.numPersons && (

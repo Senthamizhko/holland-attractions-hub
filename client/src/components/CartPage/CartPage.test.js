@@ -53,13 +53,13 @@ describe('CartPage Component', () => {
   
     const firstItem = within(cartItems[0]);
     expect(firstItem.getByText(/Test Deal 1/i)).toBeInTheDocument();
-    expect(firstItem.getByText(/Price per Person: €50.00/i)).toBeInTheDocument();
+    expect(firstItem.getByText(/Price per person: €50.00/i)).toBeInTheDocument();
     expect(firstItem.getByText(/Number of Persons: 2/i)).toBeInTheDocument();
     expect(firstItem.getByText(/Total: €100.00/i)).toBeInTheDocument();
   
     const secondItem = within(cartItems[1]);
     expect(secondItem.getByText(/Test Deal 2/i)).toBeInTheDocument();
-    expect(secondItem.getByText(/Price per Person: €100.00/i)).toBeInTheDocument();
+    expect(secondItem.getByText(/Price per person: €100.00/i)).toBeInTheDocument();
     expect(secondItem.getByText(/Total: €100.00/i)).toBeInTheDocument();
   });
   it('calculates and displays the correct total price', () => {
