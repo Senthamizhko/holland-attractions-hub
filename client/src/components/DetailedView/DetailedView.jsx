@@ -5,10 +5,10 @@ import { useCart } from '../../context/CartContext';
 import { GET_CATEGORIES } from '../../graphql/queries';
 import Category from '../Category/Category';
 import LoadingState from '../LoadingState/LoadingState';
-
 import DatePicker from 'react-datepicker'; 
 import 'react-datepicker/dist/react-datepicker.css';
 import './style.scss';
+import Notification from '../Notification/Notification'; // Import the Notification component
 
 const getProductById = (categories, id) => {
   return categories.flatMap((category) => category.deals).find((deal) => deal.id === id);
@@ -28,15 +28,27 @@ const DetailedView = ({ onAddToCart }) => {
   
   const [numPersons, setNumPersons] = useState(1);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [notification, setNotification] = useState(null); // Manage notification state
+
+  const showNotification = useCallback((message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
+  }, []);
 
   const handleAddToCart = () => {
-    if (!selectedDate) return;
+    if (!selectedDate) {
+      showNotification('Please select a date to continue.', 'error'); // Show error if no date is selected
+      return;
+    }
+
     const cartItem = { ...product, numPersons, selectedDate };
     cartDispatch({ type: 'ADD_TO_CART', payload: cartItem });
+    showNotification('Item has been added to the cart!', 'success');
   };
 
   if (loading) return <LoadingState />;
-;
   if (error) return <p className="error">Error: {error.message}</p>;
 
   const product = getProductById(data.categories, id);
@@ -45,11 +57,13 @@ const DetailedView = ({ onAddToCart }) => {
   const relatedProducts = getRelatedProducts(data.categories, id);
 
   return (
-    <div className="product-page">
-      <div className="product-page__detail">
-        <img src={product.imageUrl} alt={product.name} className="product-page__detail__image" loading="lazy" />
-        <div className="product-page__detail__info">
-          <h1 className="product-page__detail__info__header">{product.name}</h1>
+    <div className="detailed-view">
+      {notification && <Notification message={notification.message} type={notification.type} onClose={() => setNotification(null)} />}
+
+      <div className="detailed-view__detail">
+        <img src={product.imageUrl} alt={product.name} className="detailed-view__detail__image" loading="lazy" />
+        <div className="detailed-view__detail__info">
+          <h1 className="detailed-view__detail__info__header">{product.name}</h1>
           <p>{product.description}</p>
           {product.detailedDescription && <p>{product.detailedDescription}</p>}
           <p className="price">€{product.price}</p>
@@ -77,9 +91,9 @@ const DetailedView = ({ onAddToCart }) => {
           </div>
 
           <button
-            className="product-page__detail__info__add-cart"
+            className="detailed-view__detail__info__add-cart"
             onClick={handleAddToCart}
-            disabled={!selectedDate}
+            // disabled={!selectedDate} // Disable the button if no date is selected
           >
             Add to Cart
           </button>

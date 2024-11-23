@@ -10,8 +10,20 @@ const CartPage = () => {
     cartDispatch({ type: 'REMOVE_FROM_CART', payload: item });
   };
 
-  // Calculate total price for the cart
-  const totalPrice = cartItems.reduce(
+  // Group items by ID and selected date and sum the number of persons
+  const groupedItems = cartItems.reduce((acc, item) => {
+    const key = `${item.id}-${item.selectedDate || ''}`;
+    if (acc[key]) {
+      acc[key].numPersons += item.numPersons || 1; 
+    } else {
+      acc[key] = { ...item };
+    }
+    return acc;
+  }, {});
+
+  const uniqueCartItems = Object.values(groupedItems);
+
+  const totalPrice = uniqueCartItems.reduce(
     (acc, item) => acc + item.price * (item.numPersons || 1),
     0
   );
@@ -19,13 +31,13 @@ const CartPage = () => {
   return (
     <div className="cart-page">
       <h1 className="cart-page__header">Your Cart</h1>
-      {cartItems.length === 0 ? (
+      {uniqueCartItems.length === 0 ? (
         <p className="cart-page__empty">Your cart is empty!</p>
       ) : (
         <div>
           <ul className="cart-page__items">
-            {cartItems.map((item) => (
-              <li key={item.id} className="cart-page__items__item">
+            {uniqueCartItems.map((item) => (
+              <li key={`${item.id}-${item.selectedDate || ''}`} className="cart-page__items__item">
                 <img
                   src={item.imageUrl}
                   alt={item.name}
@@ -40,28 +52,25 @@ const CartPage = () => {
                     Price per Person: €{item.price.toFixed(2)}
                   </p>
 
-                  {/* Show number of persons */}
                   {item.numPersons && (
                     <p className="cart-page__items__item__details__persons">
                       Number of Persons: {item.numPersons}
                     </p>
                   )}
 
-                  {/* Show selected date */}
                   {item.selectedDate && (
                     <p className="cart-page__items__item__details__date">
                       Date: {new Date(item.selectedDate).toLocaleDateString()}
                     </p>
                   )}
 
-                  {/* Total price for the item */}
                   <p className="cart-page__items__item__details__total">
                     Total: €{(item.price * (item.numPersons || 1)).toFixed(2)}
                   </p>
                 </div>
 
                 <button
-                  onClick={() => handleRemoveFromCart(item)}
+                  onClick={() => handleRemoveFromCart(item)}  // Correct item passed to remove
                   className="cart-page__items__item__remove-button"
                 >
                   Remove
@@ -70,7 +79,6 @@ const CartPage = () => {
             ))}
           </ul>
 
-          {/* Display total price for the cart */}
           <div className="cart-page__total">
             <h2>Total Amount: €{totalPrice.toFixed(2)}</h2>
           </div>

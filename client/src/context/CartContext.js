@@ -1,28 +1,45 @@
 import React, { createContext, useReducer, useContext } from 'react';
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const initialState = {
   cartItems: [],
 };
 
-// Reducer to handle cart actions
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      // Trigger an alert when adding to the cart
-      // window.alert(`${action.payload.name} has been added to the cart!`);
-      return {
-        ...state,
-        cartItems: [...state.cartItems, action.payload],
-      };
+      const existingItemIndex = state.cartItems.findIndex(
+        (item) =>
+          item.id === action.payload.id &&
+          item.selectedDate === action.payload.selectedDate
+      );
+
+      if (existingItemIndex !== -1) {
+        const updatedCartItems = [...state.cartItems];
+        updatedCartItems[existingItemIndex].numPersons += action.payload.numPersons;
+
+        return {
+          ...state,
+          cartItems: updatedCartItems,
+        };
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, action.payload],
+        };
+      }
+
     case 'REMOVE_FROM_CART':
-      // Optional: Alert for removal if desired
-      // window.alert(`${action.payload.name} has been removed from the cart!`);
       return {
         ...state,
-        cartItems: state.cartItems.filter((item) => item.id !== action.payload.id),
+        cartItems: state.cartItems.filter(
+          (item) =>
+            item.id !== action.payload.id ||
+            item.selectedDate !== action.payload.selectedDate
+        ),
       };
+
     default:
       return state;
   }

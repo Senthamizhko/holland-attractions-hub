@@ -12,7 +12,7 @@ const DashBoard = () => {
   if (error) return <p className="error">Error: {error.message}</p>;
 
   return (
-    <div className="category-overview">
+    <div className="dashboard">
     {console.log(data?.categories)}
       {data?.categories?.map((category) => (
         <Category 

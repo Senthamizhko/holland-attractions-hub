@@ -1,4 +1,4 @@
-.product-page {
+.detailed-view {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -46,14 +46,27 @@
             }
 
             &__add-cart {
-                background-color: #28a745;
-                color: #fff;
-                border: none;
-                padding: 8px 12px;
-                cursor: pointer;
-                border-radius: 4px;
-                font-size: 14px;
-                width: 100px;
+              background-color: #28a745; /* Green color */
+              color: #fff;
+              border: none;
+              padding: 8px 12px;
+              cursor: pointer;
+              border-radius: 4px;
+              font-size: 14px;
+              width: 100px;
+            
+              /* Default button hover and active state styles */
+              &:hover {
+                background-color: #218838; /* Darker green on hover */
+              }
+            
+              /* Disabled state styles */
+              &:disabled {
+                background-color: #cccccc; /* Light gray background when disabled */
+                color: #666666; /* Gray text color */
+                cursor: not-allowed; /* Show a 'not allowed' cursor */
+                opacity: 0.6; /* Make the button slightly transparent */
+              }
             }
         }
     }
@@ -126,4 +139,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+.availability__datepicker:invalid {
+  border: 2px solid red;
+}
   }
