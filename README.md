@@ -84,7 +84,14 @@ Instead of building locally, pull the pre-built images from the registry:
 
 ```
 docker pull senthamizhko2024/client:latest
+docker run -d -p 8080:80 senthamizhko2024/client:latest
 docker pull senthamizhko2024/server:latest
+docker run -d -p 4000:4000 senthamizhko2024/server:latest
+```
+Check the app using docker only
+```
+docker run -d -p 8080:80 senthamizhko2024/client:latest
+docker run -d -p 4000:4000 senthamizhko2024/server:latest
 ```
 
 #### Skip this if you followed the above step, and prefer to build and run Docker Containers Locally:
