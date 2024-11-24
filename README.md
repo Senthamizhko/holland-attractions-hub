@@ -1,169 +1,147 @@
-Here’s the updated README with the Docker pull instructions for your assignment:
+# Holland Attraction Booking System
 
-Project Overview
+## Overview
 
-This repository contains a full-stack web application with both client and server components. The client is a React app, and the server is built with Node.js/Express. The project uses Docker for containerization and Kubernetes (Minikube) for local deployment and orchestration. Additionally, there is a load test script provided using k6.
+The Holland Attraction Booking System is a user-friendly web application designed to provide a one-stop solution for exploring, selecting, and booking tickets for various attractions across Holland. Whether you’re interested in museums, kids’ attractions, or seasonal delights like Christmas markets, this platform makes it easy to find the best deals and secure your tickets.
 
-Project Structure
+With a clean interface, users can browse the categories , select the no of persons and a preferred date to add tickets to your cart.
 
-.
-├── client/                 # React frontend application
-│   ├── Dockerfile
-│   ├── package.json        # Frontend dependencies
-│   └── src/                # React app source code=[]
-│   └── deployment/         # Kubernetes deployment files for client
-│
-├── server/                 # Backend Node.js server
-│   ├── Dockerfile
-│   ├── package.json        # Backend dependencies
-│   └── src/                # Server source code
-│   └── deployment/         # Kubernetes deployment files for server
-│
-├── loadtest/               # Load testing folder using k6
-│   └── loadtest.js         # k6 load test script
-│
-└── README.md               # Project documentation
+Scalable & Efficient: Built for high performance and reliability, ensuring a smooth experience even under heavy traffic.
 
-Getting Started
+## Tech stack
 
-Prerequisites
+### Frontend
+    •	React: Component-based architecture with React Hooks and Context API for state management.
+	•	SASS: Styled using the BEM CSS methodology for maintainable and modular design.
+	•	GraphQL with Apollo Client: Efficient data fetching and management.
+	•	Testing: Unit tests implemented using Jest and React Testing Library.
 
-Before getting started, you need to have the following tools installed:
-	•	Node.js (v14+)
-	•	Docker (for containerization)
-	•	Minikube (for Kubernetes)
-	•	kubectl (Kubernetes CLI)
-	•	k6 (for load testing)
+### Backend
 
-Setup Instructions
+	•	Node.js: Server-side application logic.
+	•	GraphQL with Apollo Server: API layer for querying and managing data.
 
-1. Clone the repository
+### Deployment
 
-git clone <repository-url>
-cd <project-folder>
+	•	Docker: Containerized application for consistent deployments.
+	•	Kubernetes: Orchestration for scaling and managing application containers.
 
-Running the Application
+### Load Testing
 
-The project consists of two parts: Client (React) and Server (Node.js).
+	•	K6: Performance and load testing to ensure scalability and reliability.
 
-2. Start the Client
+### Project structure
 
-To start the client, navigate to the client folder and run:
+This project is organized into two main directories:
+	•	Client: Contains the React-based frontend code and assets and deployment files.
+	•	Server: Houses the Node.js backend with GraphQL API, and server configurations and deployment files.
+	•	Loadtest: Contains k6 load test file.
 
-cd client
-npm install   # Install client dependencies
-npm start     # Start the client in development mode
+### How to Run Locally
 
-The client will be available at http://localhost:3000.
+## Prerequisites
 
-3. Start the Server
+	•	Node.js and npm installed.
+	•	Docker and Kubernetes installed.
+	•	Minikube configured for local Kubernetes environment.
 
-To start the server, navigate to the server folder and run:
+## Steps to Run Locally
 
-cd server
-npm install   # Install server dependencies
-npm start     # Start the server (default port: 4000)
+1) Running Directly Using Node.js
 
-The server will be available at http://localhost:4000.
+	1.	Clone the Repository:
 
-Dockerization
+```
+git clone https://github.com/Senthamizhko/holland-attractions-hub.git
+cd holland-attraction-hub
+```
 
-If you want to use pre-built Docker images instead of building them yourself, you can pull the images from Docker Hub.
+	2.	Run the Client:
+Navigate to the client folder, install dependencies, and start the frontend:
 
-4. Docker Pull & Run
+```cd client
+npm install
+npm start
+```
 
-	1.	Pull the Client Docker image:
+This will open the application in your browser at http://localhost:3000.
 
-docker pull senthamizhko2024/client:latest
+	3.	Run the Server:
+In a separate terminal, navigate to the server folder, install dependencies, and start the backend:
 
+```cd ../server
+npm install
+npm start
+```
 
-	2.	Run the Client Docker container:
+The GraphQL API server will be available at http://localhost:4000.
 
-docker run -d -p 8080:80 --name client-container senthamizhko2024/client:latest
+2) Running Using Docker and Kubernetes
 
+	1.	Use Pre-Pushed Docker Images:
+Instead of building locally, pull the pre-built images from the registry:
 
-	3.	Pull the Server Docker image:
+```docker pull senthamizhko2024/client:latest
+docker pull senthamizhko2024/server:latest```
 
-docker pull senthamizhko2024/server:latest
+	2.	Or if you prefer to build and Run Docker Containers Locally:
+•	Navigate to the client folder and build the Docker image:
 
+```cd client
+docker build -t client:latest .
+docker run -d -p 8080:80 --name client-container client:latest
+docker tag client:latest <your docker username>/client:latest
+docker push <your docker username>/client:latest
+```
+•	Navigate to the server folder and build the Docker image:
+```cd server
+docker build -t server:latest .
+docker run -d -p 8080:80 --name server-container server:latest
+docker tag server:latest <your docker username>/server:latest
+docker push <your docker username>/server:latest
+```
 
-	4.	Run the Server Docker container:
+	4.	Run with Minikube:
+Start Minikube and verify it is configured:
 
-docker run -d -p 4000:4000 --name server-container senthamizhko2024/server:latest
+```minikube start
+kubectl config current-context```  # Should output "minikube"
 
 
+	5.	Deploy with Kubernetes:
+	•	Apply deployment configurations for the client:
 
-5. Kubernetes (Minikube)
+```kubectl apply -f client-deployment.yaml
+kubectl get pods```  # Verify the deployment pods are running
 
-	1.	Start Minikube:
 
-minikube start
+	•	Apply service configurations for the client:
 
+```kubectl apply -f client-service.yaml
+kubectl get svc```  # Verify the services are available
 
-	2.	Apply Kubernetes Configurations:
-Once Minikube is running, apply the Kubernetes deployment and service configurations:
-	•	For the client:
+•	Apply deployment configurations for the server:
 
-kubectl apply -f kubernetes/client-deployment.yaml
-kubectl apply -f kubernetes/client-service.yaml
+```kubectl apply -f server-deployment.yaml
+kubectl get pods```  # Verify the deployment pods are running
 
 
-	•	For the server:
+	•	Apply service configurations for the server:
 
-kubectl apply -f kubernetes/server-deployment.yaml
-kubectl apply -f kubernetes/server-service.yaml
+```kubectl apply -f server-service.yaml
+kubectl get svc```  # Verify the services are available
 
 
-	3.	Check if pods are running:
+	6.	Access the Application:
+	•	Use the Minikube service command to open the application:
 
-kubectl get pods
+```minikube tunnel```
+Open the app at http://localhost:80.
 
 
-	4.	Check if services are available:
+This setup provides flexibility to run locally with Node.js or deploy using Docker and Kubernetes, catering to development and production needs alike.
 
-kubectl get svc
 
 
-	5.	Access the services:
-	•	Use Minikube Tunnel to access services from outside:
 
-minikube tunnel
 
-
-	•	Or, use:
-
-minikube service <service-name>
-
-
-
-Load Testing with k6
-
-A load testing script is provided in the losstaat folder using k6. It can be used to test the performance of the GraphQL API.
-	1.	Install k6:
-If you don’t have k6 installed, you can install it by following the instructions here.
-	2.	Run the load test:
-Inside the losstaat folder, run the following command to execute the load test:
-
-cd losstaat
-k6 run loadtest.js
-
-This will simulate traffic to the server (running at port 64097 in Minikube) and check for performance.
-
-Additional Notes
-
-	•	The server runs at port 4000, and you can access it from the local Kubernetes service.
-	•	The k6 test will send GraphQL queries to the server to validate if it’s responsive and the data structure is correct.
-	•	To see the results of the load test, k6 will output the results in your terminal with details about the number of requests and response times.
-
-Troubleshooting
-
-If you run into issues while setting up or running the application:
-	•	Docker issues:
-	•	Make sure Docker is running and the Docker daemon is accessible.
-	•	Verify that the correct ports are exposed (e.g., 8080 for the client and 4000 for the server).
-	•	Minikube issues:
-	•	Ensure Minikube is started correctly and that kubectl is configured to use the Minikube context (kubectl config current-context should show minikube).
-	•	Load Testing issues:
-	•	Ensure the server is running and accessible from the load test script by verifying the Minikube service URL.
-
-This updated README now includes the docker pull commands for both the client and server Docker images, making it easier for your interviewers to run the application without building the images themselves.
