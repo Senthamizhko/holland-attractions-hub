@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 const DetailedView = lazy(() => import('./components/DetailedView/DetailedView'));
 const CartPage = lazy(() => import('./components/CartPage/CartPage'));
+const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/detail/:id" element={<DetailedView />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path='*' element={<NotFound message={'Page not found'} />} />
         </Routes>
       </Suspense>
     </Router>

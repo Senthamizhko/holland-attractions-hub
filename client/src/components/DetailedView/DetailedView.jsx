@@ -5,10 +5,11 @@ import { useCart } from '../../context/CartContext';
 import { GET_CATEGORIES } from '../../graphql/queries';
 import Category from '../Category/Category';
 import LoadingState from '../LoadingState/LoadingState';
+import Notification from '../Notification/Notification';
+import NotFound from '../NotFound/NotFound';
 import DatePicker from 'react-datepicker'; 
 import 'react-datepicker/dist/react-datepicker.css';
 import './style.scss';
-import Notification from '../Notification/Notification'; // Import the Notification component
 
 const getProductById = (categories, id) => {
   return categories.flatMap((category) => category.deals).find((deal) => deal.id === id);
@@ -28,7 +29,7 @@ const DetailedView = ({ onAddToCart }) => {
   
   const [numPersons, setNumPersons] = useState(1);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [notification, setNotification] = useState(null); // Manage notification state
+  const [notification, setNotification] = useState(null);
 
   const showNotification = useCallback((message, type) => {
     setNotification({ message, type });
@@ -54,10 +55,10 @@ const DetailedView = ({ onAddToCart }) => {
   }, [id]);
 
   if (loading) return <LoadingState />;
-  if (error) return <p className="error">Error: {error.message}</p>;
+  if (error) return <NotFound message={`${error.message}, Check if the server is running!`} />;
 
   const product = getProductById(data.categories, id);
-  if (!product) return <p>Product not found.</p>;
+  if (!product) return <NotFound message={'Detail not found'} />;
 
   const relatedProducts = getRelatedProducts(data.categories, id);
 

@@ -69,20 +69,10 @@ describe('DetailedView Component', () => {
     useCart.mockReturnValue({ cartDispatch: jest.fn() });
   });
 
-//   it('renders loading state initially', () => {
-//     render(
-//       <MockedProvider mocks={[]} addTypename={false}>
-//         <DetailedView />
-//       </MockedProvider>
-//     );
-
-//     expect(screen.getByText('Loading...')).toBeInTheDocument();
-//   });
-
   it('renders error state on query failure', async () => {
     const errorMock = {
       request: { query: GET_CATEGORIES },
-      error: new Error('Failed to fetch categories'),
+      error: new Error('Failed to fetch categories, Check if the server is running!'),
     };
 
     render(
@@ -91,7 +81,7 @@ describe('DetailedView Component', () => {
       </MockedProvider>
     );
 
-    const errorMessage = await screen.findByText(/Error: Failed to fetch categories/i);
+    const errorMessage = await screen.findByText(/Failed to fetch categories, Check if the server is running!/i);
     expect(errorMessage).toBeInTheDocument();
   });
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import Category from '../Category/Category';
 import LoadingState from '../LoadingState/LoadingState';
+import NotFound from '../NotFound/NotFound';
 import { GET_CATEGORIES } from '../../graphql/queries';
 import { SearchContext } from '../../context/SearchContext';
 import './style.scss';
@@ -12,12 +13,7 @@ const DashBoard = () => {
   const [selectedCategory, setSelectedCategory] = useState(null); // State for selected filter
 
   if (loading) return <LoadingState />;
-  if (error)
-    return (
-      <p className="dashboard__error">
-        {error.message}, Check if the server is running!
-      </p>
-    );
+  if (error) return <NotFound message={`${error.message}, Check if the server is running!`} />;
 
     const filteredCategories = data?.categories?.map((category) => {
       // search term filtering
