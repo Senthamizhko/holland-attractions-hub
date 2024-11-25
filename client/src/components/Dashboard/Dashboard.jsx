@@ -36,8 +36,8 @@ const DashBoard = () => {
 
   return (
     <div className="dashboard">
-      <div className="dashboard__sections">
-        <div className="dashboard__filter-bar">
+      <div className="dashboard__sections" role="region" aria-label="Dashboard for holland attractions">
+        <div id="dasboard-filters" className="dashboard__filter-bar">
           {data?.categories?.map((category) => (
             <button
               key={category.id}
@@ -45,9 +45,10 @@ const DashBoard = () => {
                 selectedCategory === category.name ? 'active' : ''
               }`}
               onClick={() => handleFilterClick(category.name)}
+              aria-label={`Filter by ${category.filterName}`}
             >
               {category.filterName}
-            </button>
+          </button>
           ))}
         </div>
 
@@ -56,7 +57,7 @@ const DashBoard = () => {
             <Category key={category.id} category={category} />
           ))
         ) : (
-          <p className="dashboard__not-found">No results found. Try a different filter or search term.</p>
+          <p className="dashboard__not-found" role='alert' aria-live="polite">No results found. Try a different filter or search term.</p>
         )}
       </div>
     </div>

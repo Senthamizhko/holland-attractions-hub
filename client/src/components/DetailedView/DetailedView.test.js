@@ -95,7 +95,7 @@ describe('DetailedView Component', () => {
     await waitFor(() => {
       expect(screen.getByText('Art Museum Entry')).toBeInTheDocument();
       expect(screen.getByText('Explore the finest art pieces.')).toBeInTheDocument();
-      expect(screen.getByText('€20')).toBeInTheDocument();
+      expect(screen.getByText('Price per person €20')).toBeInTheDocument();
     });
   });
 

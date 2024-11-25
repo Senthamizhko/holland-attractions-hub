@@ -2,9 +2,12 @@ import React from 'react';
 import './style.scss';
 
 const NotFound = ({ message }) => {
-    console.log(message);
     return (
-        <p className="not-found">
+        <p
+         className="not-found" 
+         role="alert"
+         aria-live="assertive"
+         >
             {message}
         </p>
     );

@@ -22,7 +22,7 @@ const getRelatedProducts = (categories, id) => {
   return relatedCategory ? relatedCategory.deals.filter((deal) => deal.id !== id) : [];
 };
 
-const DetailedView = ({ onAddToCart }) => {
+const DetailedView = () => {
   const { id } = useParams();
   const { cartDispatch } = useCart();
   const { loading, error, data } = useQuery(GET_CATEGORIES);
@@ -40,7 +40,7 @@ const DetailedView = ({ onAddToCart }) => {
 
   const handleAddToCart = () => {
     if (!selectedDate) {
-      showNotification('Please select a date to continue.', 'error'); // Show error if no date is selected
+      showNotification('Please select a date to continue.', 'error');
       return;
     }
 
@@ -64,24 +64,37 @@ const DetailedView = ({ onAddToCart }) => {
 
   return (
     <div className="detailed-view">
-      {notification && <Notification message={notification.message} type={notification.type} onClose={() => setNotification(null)} />}
-
+      {notification &&
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+          />
+      }
       <div className="detailed-view__detail">
         <img src={product.imageUrl} alt={product.name} className="detailed-view__detail__image" loading="lazy" />
         <div className="detailed-view__detail__info">
           <h1 className="detailed-view__detail__info__header">{product.name}</h1>
           <p>{product.description}</p>
           {product.detailedDescription && <p>{product.detailedDescription}</p>}
-          <p className="price">€{product.price}</p>
+          <p className="price">Price per person €{product.price}</p>
           <p>Discount: {product.discount}%</p>
           <p>Offer expires on: {new Date(product.expiresAt).toLocaleString()}</p>
 
           <div className="num-persons">
             <label>Number of Persons:</label>
             <div className="num-persons__controls">
-              <button onClick={() => setNumPersons(Math.max(1, numPersons - 1))} className="num-persons__controls__btn">-</button>
+              <button
+                onClick={() => setNumPersons(Math.max(1, numPersons - 1))}
+                className="num-persons__controls__btn"
+                aria-label="Decrease number of persons" 
+                >-</button>
               <span>{numPersons}</span>
-              <button onClick={() => setNumPersons(numPersons + 1)} className="num-persons__controls__btn">+</button>
+              <button 
+                onClick={() => setNumPersons(numPersons + 1)}
+                className="num-persons__controls__btn"
+                aria-label="Increase number of persons" 
+              >+</button>
             </div>
           </div>
 
@@ -99,7 +112,6 @@ const DetailedView = ({ onAddToCart }) => {
           <button
             className="detailed-view__detail__info__add-cart"
             onClick={handleAddToCart}
-            // disabled={!selectedDate} // Disable the button if no date is selected
           >
             Add to Cart
           </button>

@@ -5,14 +5,20 @@ import './style.scss';
 
 const Category = React.memo(({ category }) => {
   return (
-    <div className="category">
-      {category.deals.length > 0 && <h2 className="category__header">{category.name}</h2>}
+    <section className="category" aria-labelledby={`category-header-${category.id}`}>
+      {category.deals.length > 0 &&
+         <h2
+            id={`category-header-${category.id}`}
+            className="category__header"
+          >
+            {category.name}
+          </h2>}
       <div className="category__cards">
         {category.deals.map((deal) => (
           <Card key={`${category.id}-${deal.id}`} deal={deal} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }, (prevProps, nextProps) => {
   return (

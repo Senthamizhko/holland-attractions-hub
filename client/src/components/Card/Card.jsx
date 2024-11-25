@@ -15,9 +15,10 @@ const Card = ({ deal }) => {
   return (
     <div
       className="card"
+      role="article"
+      aria-labelledby={`deal-title-${deal.id}`}
       tabIndex="0"
       onKeyDown={handleKeyDown}
-      role="link"
       aria-label={`View details for ${deal.name}`}
     >
       <Link to={`/detail/${deal.id}`} className="card__link">
@@ -27,7 +28,7 @@ const Card = ({ deal }) => {
           className="card__image"
           loading="lazy"
         />
-        <h3 className="card__header">{deal.name}</h3>
+        <h3 id={`deal-title-${deal.id}`} className="card__header">{deal.name}</h3>
         <p className="card__description">{deal.description}</p>
         <p className="card__price">Price per person: €{deal.price}</p>
       </Link>
