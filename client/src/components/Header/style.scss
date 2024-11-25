@@ -5,8 +5,9 @@
     background: linear-gradient(to right, #810bab 0%, #6e37fa);
     color: white;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center; 
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
@@ -15,12 +16,13 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
+      margin-right: 50px; 
     }
   
     &__search {
-      flex: 1;
-      max-width: 400px;
-      margin: 0 20px;
+      flex: 1; 
+      max-width: 300px;
+      margin: 0 auto;
       padding: 10px 15px;
       border: none;
       border-radius: 20px;
@@ -29,6 +31,10 @@
       background-color: white;
       color: #333;
       transition: box-shadow 0.3s;
+
+      @media (min-width: 800px) {
+        max-width: 400px;
+      }
   
       &:focus {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -43,9 +49,24 @@
       color: white;
       text-decoration: none;
       font-size: 1.4rem;
+      margin-left: auto;
   
       &:hover {
         border-bottom: 1px solid;
+      }
+    }
+  
+    @media (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+  
+      &__link, &__nav__link {
+        margin: 10px 0; 
+      }
+  
+      &__search {
+        width: 100%; 
+        max-width: 90%;
       }
     }
   }
