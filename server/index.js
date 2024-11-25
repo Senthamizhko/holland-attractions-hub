@@ -16,6 +16,7 @@ type Deal {
 type Category {
   id: ID!
   name: String!
+  filterName: String!
   imageUrl: String!
   deals: [Deal!]!
 }
@@ -26,9 +27,9 @@ type Query {
 `;
 
 export const resolvers = {
-Query: {
-  categories: () => categories,
-},
+  Query: {
+    categories: () => categories,
+  },
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });

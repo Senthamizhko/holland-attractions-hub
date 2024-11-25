@@ -3,6 +3,7 @@ export const categories = [
         id: 1,
         name: 'Museums & Mysteries: Art Beyond Imagination',
         imageUrl: '../assets/museums.jpg',
+        filterName: 'Museums',
         deals: [
             { 
                 id: '1', 
@@ -80,6 +81,7 @@ export const categories = [
         id: 2,
         name: 'Christmas Markets: The Magic of Twinkle Town',
         imageUrl: '../assets/christmas-markets.jpg',
+        filterName: 'Christmas Markets',
         deals: [
             { 
                 id: '11', 
@@ -187,6 +189,7 @@ export const categories = [
         id: 3,
         name: 'Kids attractions: Let the Fun Begin!',
         imageUrl: '../assets/kids-attractions.jpg',
+        filterName: 'Kids attractions',
         deals: [
             { 
                 id: '22', 
@@ -264,6 +267,7 @@ export const categories = [
         id: 4,
         name: 'Boats & Cruises: Explore the Waters of the Netherlands',
         imageUrl: '../assets/boats-cruises.jpg',
+        filterName: 'Boats & Cruises',
         deals: [
           {
             id: '29',
@@ -389,54 +393,3 @@ export const categories = [
       },
 ];
 
-
-// const categories = [
-//     {
-//       id: 1,
-//       name: 'Black Friday',
-//       imageUrl: '../assets/black-friday.jpg',
-//       deals: [
-//         { id: '1', name: 'HP Spectre x360 - 50% Off', description: 'Get the high-performance HP Spectre x360 at half the price!', price: 499.99, discount: 50, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/laptop-deal.jpg' },
-//         { id: '2', name: 'Sony WH-1000XM4 - 30% Off', description: 'Immerse yourself in sound with the Sony WH-1000XM4 headphones.', price: 79.99, discount: 30, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/headphones-deal.jpg' },
-//         { id: '3', name: 'Logitech Gaming Mouse & Keyboard Combo - 70% Off', description: 'Upgrade your gaming setup with this exclusive combo deal.', price: 29.99, discount: 70, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/gaming-deal.jpg' },
-//         { id: '4', name: 'Apple iPad 10.2-inch - 60% Off', description: 'Get your hands on the latest iPad with massive savings.', price: 199.99, discount: 60, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/tablet-deal.jpg' },
-//         { id: '5', name: 'SanDisk Ultra USB 3.0 - Buy 1 Get 1 Free', description: 'Store more with the SanDisk Ultra USB drives, now with a buy-one-get-one offer.', price: 14.99, discount: 100, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/usb-deal.jpg' },
-//         { id: '6', name: 'Seagate Expansion 2TB External Hard Drive - 40% Off', description: 'Expand your storage with a 2TB Seagate External HDD.', price: 89.99, discount: 40, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/hdd-deal.jpg' },
-//         { id: '7', name: 'Razer BlackWidow V3 Mechanical Keyboard - 20% Off', description: 'Enhance your gaming with the Razer BlackWidow V3 keyboard.', price: 49.99, discount: 20, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/keyboard-deal.jpg' },
-//         { id: '8', name: 'Logitech G Pro Wireless Gaming Mouse - 30% Off', description: 'Precision and comfort with the Logitech G Pro wireless mouse.', price: 19.99, discount: 30, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/mouse-deal.jpg' },
-//         { id: '9', name: 'Samsung Odyssey 27-inch Curved Gaming Monitor - 50% Off', description: 'Upgrade your gaming display with the Samsung Odyssey 27" monitor.', price: 149.99, discount: 50, expiresAt: '2024-11-29T23:59:59Z', imageUrl: '../assets/monitor-deal.jpg' },
-//       ],
-//     },
-//     {
-//       id: 2,
-//       name: 'Christmas',
-//       imageUrl: '../assets/christmas.jpg',
-//       deals: [
-//         { id: '21', name: 'Santa’s Workshop T-Shirt - Buy 1 Get 1 Free', description: 'Celebrate the holidays with festive Santa’s Workshop T-shirts.', price: 19.99, discount: 100, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/tshirts-deal.jpg' },
-//         { id: '22', name: 'Pine Needle Artificial Christmas Tree - 40% Off', description: 'Decorate your home with a stunning Pine Needle artificial Christmas tree.', price: 39.99, discount: 40, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/christmastree-deal.jpg' },
-//         { id: '23', name: 'LED Snowman Christmas Decor - 60% Off', description: 'Light up your home with our exclusive LED Snowman Christmas decor.', price: 49.99, discount: 60, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/homedecor-deal.jpg' },
-//         { id: '24', name: 'Yankee Candle Christmas Collection - 30% Off', description: 'Fill your home with holiday scents from the Yankee Candle Christmas collection.', price: 14.99, discount: 30, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/candles-deal.jpg' },
-//         { id: '25', name: 'Holiday Wrapping Paper Set - 50% Off', description: 'Make your gifts extra special with the Holiday Wrapping Paper Set.', price: 4.99, discount: 50, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/wrapping-paper-deal.jpg' },
-//         { id: '26', name: 'String Lights - 70% Off', description: 'Brighten your home with dazzling string lights.', price: 9.99, discount: 70, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/lights-deal.jpg' },
-//         { id: '27', name: 'KitchenAid Stand Mixer - 20% Off', description: 'Make holiday baking easy with the KitchenAid Stand Mixer.', price: 199.99, discount: 20, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/kitchen-appliance-deal.jpg' },
-//         { id: '28', name: 'DeLonghi Espresso Machine - 25% Off', description: 'Start your holiday mornings right with the DeLonghi Espresso Machine.', price: 129.99, discount: 25, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/coffee-machine-deal.jpg' },
-//         { id: '29', name: 'Lindt Holiday Chocolate Gift Box - Buy 2 Get 1 Free', description: 'Indulge in holiday chocolates with a buy-2-get-1-free deal.', price: 9.99, discount: 100, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/chocolate-deal.jpg' },
-//         { id: '30', name: 'Chanel No. 5 Holiday Edition Perfume - 50% Off', description: 'Gift the fragrance of Chanel No. 5 this holiday season.', price: 39.99, discount: 50, expiresAt: '2024-12-25T23:59:59Z', imageUrl: '../assets/perfume-deal.jpg' },
-//       ],
-//     },
-//     {
-//       id: 3,
-//       name: 'Sinter Klaus',
-//       imageUrl: '../assets/sinter-klaus.jpg',
-//       deals: [
-//         { id: '31', name: 'Kinder Surprise Chocolate Eggs - 50% Off', description: 'Delight the kids with delicious Kinder Surprise Chocolate Eggs.', price: 5.99, discount: 50, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/kinder-chocolate.jpg' },
-//         { id: '32', name: 'Buy 1 Get 1 Free on Stuffed Reindeer Plush Toys', description: 'Cute and cuddly stuffed reindeer plush toys for all ages.', price: 14.99, discount: 100, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/plush-toy.jpg' },
-//         { id: '34', name: 'The Polar Express Kids’ Book - 40% Off', description: 'The holiday classic “The Polar Express” for children.', price: 9.99, discount: 40, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/kids-book.jpg' },
-//         { id: '36', name: 'Haribo Holiday Candy Packs - Buy 2 Get 1 Free', description: 'Enjoy the sweetness of holiday-themed Haribo candy packs.', price: 4.99, discount: 100, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/candy-pack.jpg' },
-//         { id: '37', name: 'Holiday Craft Kits for Kids - 50% Off', description: 'Keep the kids busy with fun holiday craft kits.', price: 14.99, discount: 50, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/craft-kit.jpg' },
-//         { id: '38', name: 'Eco-friendly Wooden Train Set - 25% Off', description: 'Engage your child’s imagination with this eco-friendly wooden toy set.', price: 22.99, discount: 25, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/wooden-toy.jpg' },
-//         { id: '39', name: 'Monopoly Classic Board Game - 30% Off', description: 'Enjoy family game night with the classic Monopoly game.', price: 29.99, discount: 30, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/board-game.jpg' },
-//         { id: '40', name: 'Fleece Winter Hats - Buy 1 Get 1 Free', description: 'Keep warm with cozy fleece winter hats for kids.', price: 10.99, discount: 100, expiresAt: '2024-12-06T23:59:59Z', imageUrl: '../assets/winter-hat.jpg' },
-//       ],
-//     },
-//   ];

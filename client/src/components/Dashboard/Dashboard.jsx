@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import Category from '../Category/Category';
 import LoadingState from '../LoadingState/LoadingState';
@@ -7,30 +7,61 @@ import { SearchContext } from '../../context/SearchContext';
 import './style.scss';
 
 const DashBoard = () => {
-  const { searchTerm } = useContext(SearchContext); // Access the search term
+  const { searchTerm } = useContext(SearchContext);
   const { loading, error, data } = useQuery(GET_CATEGORIES);
+  const [selectedCategory, setSelectedCategory] = useState(null); // State for selected filter
 
   if (loading) return <LoadingState />;
-  if (error) return <p className="dashboard__error">{error.message}, Check if the server is running!</p>;
+  if (error)
+    return (
+      <p className="dashboard__error">
+        {error.message}, Check if the server is running!
+      </p>
+    );
 
-  const filteredCategories = data?.categories?.map((category) => ({
-    ...category,
-    deals: category.deals.filter((deal) =>
-      deal.name.toLowerCase().includes(searchTerm)
-    ),
-  }));
-
-  const isfilteredDataAvailable = filteredCategories.some((fc) => fc?.deals?.length > 0);
+    const filteredCategories = data?.categories?.map((category) => {
+      // search term filtering
+      const matchedSearchDeals = category.deals.filter((deal) => searchTerm ? deal.name.toLowerCase().includes(searchTerm) : true);
+      return {
+        ...category,
+        deals: matchedSearchDeals,
+      };
+    }).filter((category) => {
+      // button filtering
+      const matchedButtonFilter = selectedCategory ? category.name === selectedCategory : true;
+      return matchedButtonFilter && category.deals.length > 0;
+    });
 
   return (
     <div className="dashboard">
-      {isfilteredDataAvailable ?
-      (filteredCategories?.map((category) => (category?.deals?.length > 0 &&
-        <Category key={category.id} category={category} />
-      )))
-      :
-      <p className='dashboard__not-found'>No deals available for the searched term</p>
-    }
+      <div className="dashboard__sections">
+
+        <div className="dashboard__filter-bar">
+          {data?.categories?.map((category) => (
+            <button
+              key={category.id}
+              className={`dashboard__filter-bar__button ${
+                selectedCategory === category.name ? 'active' : ''
+              }`}
+              onClick={() =>
+                setSelectedCategory((prev) =>
+                  prev === category.name ? null : category.name
+                )
+              }
+            >
+              {category.filterName}
+            </button>
+          ))}
+        </div>
+
+        {filteredCategories?.length > 0 ? (
+          filteredCategories.map((category) => (
+            <Category key={category.id} category={category} />
+          ))
+        ) : (
+          <p className="dashboard__not-found">No results found. Try a different filter or search term.</p>
+        )}
+        </div>
     </div>
   );
 };

@@ -106,7 +106,7 @@ const DetailedView = ({ onAddToCart }) => {
       </div>
 
       <Category 
-        category={{ name: "Discover Extra Gems", id: 'Similar-items', deals: relatedProducts }}
+        category={{ name: "Similar Attractions", id: 'Similar-items', deals: relatedProducts }}
       />
     </div>
   );

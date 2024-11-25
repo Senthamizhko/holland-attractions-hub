@@ -32,7 +32,7 @@ const CartPage = () => {
     <div className="cart-page">
       <h1 className="cart-page__header">Your Cart</h1>
       {uniqueCartItems.length === 0 ? (
-        <p className="cart-page__empty">Your cart is empty!</p>
+        <p className="cart-page__empty">No activities in your cart</p>
       ) : (
         <div>
           <ul className="cart-page__items">

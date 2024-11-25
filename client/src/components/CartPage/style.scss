@@ -12,8 +12,14 @@
     }
 
     &__empty {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: none;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 1600px;
+        text-align: center;
         font-size: 1.5rem;
-
     }
 
     &__items {

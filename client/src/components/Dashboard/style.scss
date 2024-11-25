@@ -1,25 +1,40 @@
 .dashboard {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1600px;
 
-  &__section {
-    margin-bottom: 40px;
+  &__sections {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1600px;
+  }
+  
+  &__filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center; 
 
-    &__deals {
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 1600px;
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        gap: 15px;
-        padding-bottom: 10px;
+    &__button {
+      padding: 10px 20px;
+      border: 2px solid #6e37fa;
+      border-radius: 20px;
+      background-color: white;
+      color: #6e37fa;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    
+      &.active {
+        background-color: #6e37fa;
+        color: white;
+      }
+    
+      &:hover {
+        background-color: #6e37fa;
+        color: white;
+      }
     }
   }
 
@@ -33,5 +48,10 @@
     max-width: 1600px;
     text-align: center;
     font-size: 1.5rem;
+  }
+
+
+  &__not-found {
+    box-shadow: none;
   }
 }

@@ -5,6 +5,7 @@ export const GET_CATEGORIES = gql`
     categories {
       id
       name
+      filterName
       deals {
         id
         name

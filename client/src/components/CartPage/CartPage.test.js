@@ -42,7 +42,7 @@ describe('CartPage Component', () => {
     const emptyCartState = { cartItems: [] };
     renderCartPage(emptyCartState);
 
-    expect(screen.getByText(/Your cart is empty!/i)).toBeInTheDocument();
+    expect(screen.getByText(/No activities in your cart/i)).toBeInTheDocument();
   });
 
   it('renders cart items and groups them by ID and date', () => {

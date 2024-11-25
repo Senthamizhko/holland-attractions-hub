@@ -59,14 +59,14 @@
     &__view-deal {
         display: inline-block;
         padding: 8px 15px;
-        background-color: #6e37fa;
+        background-color: #ef4444;
         color: white;
         text-decoration: none;
         border-radius: 10px;
         font-size: 0.9rem;
         &:hover {
-            background-color: #5a2fd8; /* Darker purple when hovered */
-            transform: scale(1.05); /* Slight zoom on hover for an elegant effect */
+            background-color: #dc2626;
+            transform: scale(1.05);
         }
     }
     &__add-cart {
