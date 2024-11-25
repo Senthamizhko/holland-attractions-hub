@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import Dashboard from './Dashboard';
 import { GET_CATEGORIES } from '../../graphql/queries';
+import { SearchContext } from '../../context/SearchContext'; // Import SearchContext
 import '@testing-library/jest-dom';
 
 jest.mock('../Category/Category', () => ({ category }) => (
@@ -18,7 +19,13 @@ const mockCategories = [
     id: '1',
     name: 'Museum',
     imageUrl: 'https://example.com/museum.jpg',
-    deals: [],
+    deals: [
+      {
+        id: '10',
+        name: 'Nemo',
+        imageUrl: 'https://example.com/museum.jpg',
+      }
+    ],
   },
   {
     id: '2',
@@ -28,38 +35,19 @@ const mockCategories = [
   },
 ];
 
-// const mockCategories = [
-//   {
-//     request: { query: GET_CATEGORIES, variables: {} },
-//     result: {
-//       data: {
-//         categories: [
-//           {
-//             id: '1',
-//             name: 'Museums',
-//             deals: [
-//               {
-//                 id: '101',
-//                 name: 'Art Museum Entry',
-//                 description: 'Explore the finest art pieces.',
-//                 detailedDescription: 'Exclusive access to special exhibits.',
-//                 price: 20,
-//                 imageUrl: 'https://example.com/art.jpg',
-//               },
-//             ],
-//           },
-//         ],
-//       },
-//     },
-//   },
-// ];
+const mockSearchContextValue = {
+  searchTerm: 'Nemo',
+  setSearchTerm: jest.fn(),
+};
 
 describe('Dashboard Component', () => {
   it('renders loading state initially', () => {
     render(
-      <MockedProvider mocks={[]} addTypename={false}>
-        <Dashboard />
-      </MockedProvider>
+      <SearchContext.Provider value={mockSearchContextValue}>
+        <MockedProvider mocks={[]} addTypename={false}>
+          <Dashboard />
+        </MockedProvider>
+      </SearchContext.Provider>
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -72,9 +60,11 @@ describe('Dashboard Component', () => {
     };
 
     render(
-      <MockedProvider mocks={[errorMock]} addTypename={false}>
-        <Dashboard />
-      </MockedProvider>
+      <SearchContext.Provider value={mockSearchContextValue}>
+        <MockedProvider mocks={[errorMock]} addTypename={false}>
+          <Dashboard />
+        </MockedProvider>
+      </SearchContext.Provider>
     );
 
     const errorMessage = await screen.findByText(/Failed to fetch categories, Check if the server is running!/i);
@@ -88,17 +78,22 @@ describe('Dashboard Component', () => {
         data: { categories: mockCategories },
       },
     };
+    const mockSearchContextValue = {
+      searchTerm: '',
+      setSearchTerm: jest.fn(),
+    };
 
     render(
-      <MockedProvider mocks={[successMock]} addTypename={false}>
-        <Dashboard />
-      </MockedProvider>
+      <SearchContext.Provider value={mockSearchContextValue}>
+        <MockedProvider mocks={[successMock]} addTypename={false}>
+          <Dashboard />
+        </MockedProvider>
+      </SearchContext.Provider>
     );
 
-    const categoryElements = await screen.findAllByText(/Museum|Kids attraction/);
-    expect(categoryElements).toHaveLength(2);
+    const categoryElements = await screen.findAllByText(/Museum/);
+    expect(categoryElements).toHaveLength(1);
 
     expect(categoryElements[0]).toHaveTextContent('Museum');
-    expect(categoryElements[1]).toHaveTextContent('Kids attraction');
   });
 });

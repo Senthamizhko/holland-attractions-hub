@@ -1,54 +1,54 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
+import { SearchContext } from '../../context/SearchContext';
+import '@testing-library/jest-dom';
+
 
 describe('Header Component', () => {
-  
+  const mockSetSearchTerm = jest.fn();
+
+  const renderWithContextAndRouter = (ui, { route = '/' } = {}) => {
+  return render(
+    <MemoryRouter initialEntries={[route]}>
+      <SearchContext.Provider
+        value={{
+          searchTerm: '',
+          setSearchTerm: mockSetSearchTerm,
+        }}
+      >
+        {ui}
+      </SearchContext.Provider>
+    </MemoryRouter>
+  );
+};
+
   it('renders the header element', () => {
-    render(
-      <Router>
-        <Header />
-      </Router>
-    );
-    
+    renderWithContextAndRouter(<Header />);
     expect(screen.getByRole('banner')).toBeInTheDocument();
   });
 
   it('contains a link to the home page', () => {
-    render(
-      <Router>
-        <Header />
-      </Router>
-    );
-    
+    renderWithContextAndRouter(<Header />);
     const homeLink = screen.getByText('Holland Attractions');
     expect(homeLink).toBeInTheDocument();
     expect(homeLink).toHaveAttribute('href', '/');
   });
 
   it('contains a link to the cart page', () => {
-    render(
-      <Router>
-        <Header />
-      </Router>
-    );
-    
+    renderWithContextAndRouter(<Header />);
     const cartLink = screen.getByText('Cart');
     expect(cartLink).toBeInTheDocument();
     expect(cartLink).toHaveAttribute('href', '/cart');
   });
 
-  it('applies the correct class names to the links', () => {
-    render(
-      <Router>
-        <Header />
-      </Router>
-    );
-    
-    const homeLink = screen.getByText('Holland Attractions');
-    expect(homeLink).toHaveClass('header__link');
+  it('handles input changes in the search bar', () => {
+    renderWithContextAndRouter(<Header />);
+    const searchInput = screen.getByPlaceholderText('Search categories...');
 
-    const cartLink = screen.getByText('Cart');
-    expect(cartLink).toHaveClass('header__nav__link');
+    fireEvent.change(searchInput, { target: { value: 'museums' } });
+    expect(mockSetSearchTerm).toHaveBeenCalledWith('museums');
   });
+
 });

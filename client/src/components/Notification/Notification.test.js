@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Notification from './Notification';
+import '@testing-library/jest-dom';
 
 describe('Notification Component', () => {
 

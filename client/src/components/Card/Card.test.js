@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Card from './Card';
+import '@testing-library/jest-dom';
 
 describe('Card Component', () => {
   const mockDeal = {
@@ -53,6 +54,6 @@ describe('Card Component', () => {
     const viewDealLink = links.find(link => link.textContent === 'View Deal');
 
     expect(links.length).toBeGreaterThan(0);
-    expect(viewDealLink).toHaveAttribute('href', `/product/${mockDeal.id}`);
+    expect(viewDealLink).toHaveAttribute('href', `/detail/${mockDeal.id}`);
   });
 });

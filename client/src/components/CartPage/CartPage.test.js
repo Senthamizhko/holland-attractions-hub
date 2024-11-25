@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { CartProvider, CartContext } from '../../context/CartContext'; // Correctly importing the context and provider
 import CartPage from './CartPage';
+import '@testing-library/jest-dom';
 
 const mockCartState = {
   cartItems: [

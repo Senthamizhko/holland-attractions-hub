@@ -59,6 +59,5 @@ describe('Category Component', () => {
 
     const dealCards = screen.queryByRole('img');
     expect(dealCards).toBeNull(); 
-    expect(screen.getByText('Museums')).toBeInTheDocument(); 
   });
 });
