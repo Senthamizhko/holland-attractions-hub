@@ -6,7 +6,7 @@ import './style.scss';
 const Card = ({ deal }) => {
   return (
     <div className="card">
-      <Link to={`/product/${deal.id}`} className="card__link" key={deal.id}>
+      <Link to={`/detail/${deal.id}`} className="card__link" key={deal.id}>
         <img 
           src={deal.imageUrl} 
           alt={deal.name} 
@@ -18,7 +18,7 @@ const Card = ({ deal }) => {
         <p className="card__price">Price per person: €{deal.price}</p>
       </Link>
       <div className="card__actions">
-        <Link to={`/product/${deal.id}`} className="card__actions__view-deal">
+        <Link to={`/detail/${deal.id}`} className="card__actions__view-deal">
           View Deal
         </Link>
       </div>
