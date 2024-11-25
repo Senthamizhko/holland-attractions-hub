@@ -13,11 +13,11 @@ const Category = React.memo(({ category }) => {
           >
             {category.name}
           </h2>}
-      <div className="category__cards">
-        {category.deals.map((deal) => (
-          <Card key={`${category.id}-${deal.id}`} deal={deal} />
-        ))}
-      </div>
+        <div className="category__cards">
+          {category.deals.map((deal) => (
+            <Card key={`${category.id}-${deal.id}`} deal={deal} />
+          ))}
+        </div>
     </section>
   );
 }, (prevProps, nextProps) => {

@@ -5,7 +5,7 @@
     background: linear-gradient(to right, #810bab 0%, #6e37fa);
     color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center; 
     padding: 20px;
@@ -21,8 +21,8 @@
   
     &__search {
       flex: 1; 
-      max-width: 300px;
-      margin: 0 auto;
+      max-width: 250px;
+      margin: 0 10px;
       padding: 10px 15px;
       border: none;
       border-radius: 20px;
@@ -31,6 +31,10 @@
       background-color: white;
       color: #333;
       transition: box-shadow 0.3s;
+
+      @media (min-width: 700px) {
+        margin: 0 auto;
+      }
 
       @media (min-width: 800px) {
         max-width: 400px;
