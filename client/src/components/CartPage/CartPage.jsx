@@ -70,7 +70,7 @@ const CartPage = () => {
                 </div>
 
                 <button
-                  onClick={() => handleRemoveFromCart(item)}  // Correct item passed to remove
+                  onClick={() => handleRemoveFromCart(item)} 
                   className="cart-page__items__item__remove-button"
                 >
                   Remove

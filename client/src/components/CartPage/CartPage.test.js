@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, within } from '@testing-library/react';
-import { CartProvider, CartContext } from '../../context/CartContext'; // Correctly importing the context and provider
+import { CartProvider, CartContext } from '../../context/CartContext';
 import CartPage from './CartPage';
 import '@testing-library/jest-dom';
 
@@ -49,8 +49,8 @@ describe('CartPage Component', () => {
   it('renders cart items and groups them by ID and date', () => {
     renderCartPage();
   
-    const cartItems = screen.getAllByRole('listitem'); // Assuming each item is rendered as a <li>
-    expect(cartItems).toHaveLength(2); // Ensure we have two items in the cart
+    const cartItems = screen.getAllByRole('listitem');
+    expect(cartItems).toHaveLength(2);
   
     const firstItem = within(cartItems[0]);
     expect(firstItem.getByText(/Test Deal 1/i)).toBeInTheDocument();
@@ -66,14 +66,14 @@ describe('CartPage Component', () => {
   it('calculates and displays the correct total price', () => {
     renderCartPage();
 
-    const totalAmount = screen.getByText(/Total Amount: €200.00/i); // Total for both items: 100 + 100
+    const totalAmount = screen.getByText(/Total Amount: €200.00/i); 
     expect(totalAmount).toBeInTheDocument();
   });
 
   it('removes an item from the cart when the remove button is clicked', () => {
     renderCartPage();
 
-    const removeButton = screen.getAllByText(/Remove/i)[0]; // Target the first remove button
+    const removeButton = screen.getAllByText(/Remove/i)[0]; 
     fireEvent.click(removeButton);
 
     expect(mockCartDispatch).toHaveBeenCalledWith({

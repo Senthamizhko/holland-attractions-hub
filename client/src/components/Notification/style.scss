@@ -3,7 +3,7 @@
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #f44336; /* Red for errors */
+    background-color: #f44336;
     color: white;
     padding: 10px;
     border-radius: 4px;
@@ -15,11 +15,11 @@
   }
   
   .notification.success {
-    background-color: #4caf50; /* Green for success */
+    background-color: #4caf50;
   }
   
   .notification.error {
-    background-color: #f44336; /* Red for error */
+    background-color: #f44336;
   }
   
   .notification p {

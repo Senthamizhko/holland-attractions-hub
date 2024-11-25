@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import Dashboard from './Dashboard';
 import { GET_CATEGORIES } from '../../graphql/queries';
-import { SearchContext } from '../../context/SearchContext'; // Import SearchContext
+import { SearchContext } from '../../context/SearchContext';
 import '@testing-library/jest-dom';
 
 jest.mock('../Category/Category', () => ({ category }) => (

@@ -46,7 +46,7 @@
             }
 
             &__add-cart {
-              background-color: #28a745; /* Green color */
+              background-color: #28a745;
               color: #fff;
               border: none;
               padding: 8px 12px;
@@ -55,17 +55,15 @@
               font-size: 14px;
               width: 100px;
             
-              /* Default button hover and active state styles */
               &:hover {
-                background-color: #218838; /* Darker green on hover */
+                background-color: #218838; 
               }
             
-              /* Disabled state styles */
               &:disabled {
-                background-color: #cccccc; /* Light gray background when disabled */
-                color: #666666; /* Gray text color */
-                cursor: not-allowed; /* Show a 'not allowed' cursor */
-                opacity: 0.6; /* Make the button slightly transparent */
+                background-color: #cccccc;
+                color: #666666;
+                cursor: not-allowed;
+                opacity: 0.6;
               }
             }
         }
@@ -139,7 +137,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-.availability__datepicker:invalid {
-  border: 2px solid red;
-}
+    .availability__datepicker:invalid {
+      border: 2px solid red;
+    }
   }

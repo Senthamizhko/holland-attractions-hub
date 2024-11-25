@@ -78,50 +78,16 @@
         border-radius: 10px;
         font-size: 0.9rem;
         &:hover {
-          background-color: #218838; /* Darker purple when hovered */
-          transform: scale(1.05); /* Slight zoom on hover for an elegant effect */
+          background-color: #218838; 
+          transform: scale(1.05);
         }
     }
   }
 }
 .card__actions {
   display: flex;
-  gap: 15px; /* Add space between the buttons */
+  gap: 15px;
   margin-top: 10px;
 }
-// .card__actions__view-deal {
-//   display: inline-block;
-//   margin-top: 10px;
-//   padding: 10px 20px;
-//   background-color: #6e37fa; /* Elegant purple background */
-//   color: white;
-//   text-decoration: none;
-//   border-radius: 25px; /* Rounded button edges for a modern look */
-//   font-size: 1rem; /* Slightly larger font */
-//   font-weight: 500; /* Bold for emphasis */
-//   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
-// }
-
-// .card__actions__view-deal:hover {
-//   background-color: #5a2fd8; /* Darker purple when hovered */
-//   transform: scale(1.05); /* Slight zoom on hover for an elegant effect */
-// }
-
-// .card__actions__add-cart {
-//   background-color: #28a745; /* Elegant green background */
-//   color: #fff;
-//   border: none;
-//   padding: 10px 20px; /* Increased padding for more balance */
-//   cursor: pointer;
-//   border-radius: 25px; /* Matching rounded edges */
-//   font-size: 1rem; /* Slightly larger font */
-//   font-weight: 500;
-//   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
-// }
-
-// .card__actions__add-cart:hover {
-//   background-color: #218838; /* Darker green on hover */
-//   transform: scale(1.05); /* Subtle zoom effect on hover */
-// }
 
 
