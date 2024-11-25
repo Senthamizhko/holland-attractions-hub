@@ -6,11 +6,12 @@ import './style.scss';
 const Category = React.memo(({ category }) => {
   return (
     <div className="category">
-      <h2 className="category__header">{category.name}</h2>
+      {category.deals.length > 0 && <h2 className="category__header">{category.name}</h2>}
       <div className="category__cards">
         {category.deals.map((deal) => (
-          <Card key={`${category.id}-${deal.id}`} deal={deal} />
-        ))}
+            <Card key={`${category.id}-${deal.id}`} deal={deal} />
+          ))
+        }
       </div>
     </div>
   );

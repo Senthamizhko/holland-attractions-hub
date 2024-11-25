@@ -4,7 +4,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 1600px;
 
   &__section {
     margin-bottom: 40px;
@@ -14,7 +14,7 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 20px;
         margin: 20px auto;
-        max-width: 1200px;
+        max-width: 1600px;
         display: flex;
         overflow-x: auto;
         scroll-behavior: smooth;
@@ -23,13 +23,14 @@
     }
   }
 
-  &__error {
+  &__error,
+  &__not-found {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 1600px;
     text-align: center;
     font-size: 1.5rem;
   }
