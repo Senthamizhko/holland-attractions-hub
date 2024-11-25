@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
@@ -47,6 +47,11 @@ const DetailedView = ({ onAddToCart }) => {
     cartDispatch({ type: 'ADD_TO_CART', payload: cartItem });
     showNotification('Item has been added to the cart!', 'success');
   };
+
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
 
   if (loading) return <LoadingState />;
   if (error) return <p className="error">Error: {error.message}</p>;
@@ -102,7 +107,6 @@ const DetailedView = ({ onAddToCart }) => {
 
       <Category 
         category={{ name: "Discover Extra Gems", id: '4', deals: relatedProducts }}
-        handleAddToCart={onAddToCart}
       />
     </div>
   );
