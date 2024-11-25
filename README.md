@@ -160,6 +160,18 @@ Open the app at http://localhost:80.
 
 This setup provides flexibility to run locally with Node.js or deploy using Docker and Kubernetes, catering to development and production needs alike.
 
+## Accessibility
+
+This project is designed with accessibility in mind to ensure usability for all users, including those with disabilities. Key accessibility features include:
+	•	Semantic HTML: Proper use of <header>, <section>, and other elements to enhance screen reader compatibility.
+	•	Keyboard Navigation: All interactive elements (e.g., buttons, forms) are fully navigable via the keyboard, with clear focus states.
+	•	ARIA Roles and Live Regions: Dynamic updates (e.g., notifications) are announced to screen readers using role="alert" and aria-live.
+	•	Responsive Design: Fully optimized for mobile, tablet, and desktop use.
+
+### Testing
+
+Accessibility was tested using tools like screen readers (VoiceOver) and dev tools.
+
 
 
 
