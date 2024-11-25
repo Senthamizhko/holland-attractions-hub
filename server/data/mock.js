@@ -1,7 +1,7 @@
 export const categories = [
     {
         id: 1,
-        name: 'Masterpieces & Mysteries: Art Beyound Imagination',
+        name: 'Museums & Mysteries: Art Beyond Imagination',
         imageUrl: '../assets/museums.jpg',
         deals: [
             { 
@@ -78,7 +78,7 @@ export const categories = [
     },
     {
         id: 2,
-        name: 'Twinkle Town: The Magic of Christmas Markets',
+        name: 'Christmas Markets: The Magic of Twinkle Town',
         imageUrl: '../assets/christmas-markets.jpg',
         deals: [
             { 
@@ -185,7 +185,7 @@ export const categories = [
     },
     {
         id: 3,
-        name: 'Whimsy World: Let the Fun Begin!',
+        name: 'Kids attractions: Let the Fun Begin!',
         imageUrl: '../assets/kids-attractions.jpg',
         deals: [
             { 
@@ -260,7 +260,135 @@ export const categories = [
             },
         ],
     },
+    {
+        id: 4,
+        name: 'Boats & Cruises: Explore the Waters of the Netherlands',
+        imageUrl: '../assets/boats-cruises.jpg',
+        deals: [
+          {
+            id: '29',
+            name: 'Canal Cruise in Amsterdam - 20% Off',
+            description: 'Experience a scenic canal cruise through Amsterdam.',
+            detailedDescription: 'Enjoy a relaxing boat tour through the canals of Amsterdam. Discover the city’s most famous landmarks including the Anne Frank House, the Rijksmuseum, and the famous canal houses, all from the comfort of a classic Dutch canal boat.',
+            price: 25.00,
+            discount: 20,
+            expiresAt: '2024-06-30T23:59:59Z',
+            imageUrl: '../assets/amsterdam-canal.jpg',
+          },
+          {
+            id: '30',
+            name: 'Rotterdam Port Boat Tour - 15% Off',
+            description: 'Explore the busy and modern port of Rotterdam with a guided boat tour.',
+            detailedDescription: 'Take a guided boat tour through the heart of Rotterdam’s bustling port, one of the largest in Europe. Get a unique view of the city’s cutting-edge architecture and learn about its maritime history. A great experience for lovers of modern industry and design.',
+            price: 35.00,
+            discount: 15,
+            expiresAt: '2024-12-31T23:59:59Z',
+            imageUrl: '../assets/rotterdam-port.jpg',
+          },
+          {
+            id: '31',
+            name: 'Zaanse Schans Windmill & Boat Tour - 25% Off',
+            description: 'Combine a boat ride with a visit to Zaanse Schans Windmills.',
+            detailedDescription: 'Sail through the scenic waters of the Zaan River and visit the famous Zaanse Schans windmills. Experience the beauty of traditional Dutch craftsmanship while learning about the history and techniques behind the windmills that powered the country’s industrial revolution.',
+            price: 45.00,
+            discount: 25,
+            expiresAt: '2024-09-30T23:59:59Z',
+            imageUrl: '../assets/zaanse-schans.jpg',
+          },
+          {
+            id: '32',
+            name: 'Volendam and Marken Island Cruise - 10% Off',
+            description: 'Discover the fishing villages of Volendam and Marken with a boat tour.',
+            detailedDescription: 'Take a boat cruise across the IJsselmeer to the picturesque fishing villages of Volendam and Marken. Experience traditional Dutch culture with quaint wooden houses, fishing boats, and local delicacies. Don’t forget to try the famous smoked eel!',
+            price: 50.00,
+            discount: 10,
+            expiresAt: '2024-08-31T23:59:59Z',
+            imageUrl: '../assets/volendam-marken.jpg',
+          },
+          {
+            id: '33',
+            name: 'Dinner Cruise on the IJ River - 30% Off',
+            description: 'Enjoy a romantic dinner cruise on the IJ River in Amsterdam.',
+            detailedDescription: 'Treat yourself to a luxury dinner cruise along the IJ River, with stunning views of Amsterdam’s skyline and waterfront. Enjoy a gourmet meal prepared by top chefs while you relax on a beautiful boat deck. Perfect for couples or special occasions.',
+            price: 85.00,
+            discount: 30,
+            expiresAt: '2024-12-31T23:59:59Z',
+            imageUrl: '../assets/amsterdam-dinner-cruise.jpg',
+          },
+          {
+            id: '34',
+            name: 'Giethoorn Boat Ride - 15% Off',
+            description: 'Take a scenic boat ride through the canals of Giethoorn.',
+            detailedDescription: 'Known as the "Venice of the North," Giethoorn is a picturesque village where boats are the primary mode of transport. Take a peaceful boat ride through its serene canals, surrounded by beautiful thatched-roof houses and lush green landscapes.',
+            price: 40.00,
+            discount: 15,
+            expiresAt: '2024-07-15T23:59:59Z',
+            imageUrl: '../assets/giethoorn-boat.jpg',
+          },
+          {
+            id: '35',
+            name: 'Haarlem Canal Boat Tour - 20% Off',
+            description: 'Explore the canals of Haarlem on a boat tour.',
+            detailedDescription: 'Discover the charming city of Haarlem from its scenic canals. Sail past historic buildings, visit the famous Grote Markt, and enjoy the serene atmosphere of this beautiful Dutch town, which is often overlooked by tourists.',
+            price: 22.00,
+            discount: 20,
+            expiresAt: '2024-10-31T23:59:59Z',
+            imageUrl: '../assets/haarlem-canal.jpg',
+          },
+          {
+            id: '36',
+            name: 'Leiden Boat Tour - 10% Off',
+            description: 'Enjoy a scenic boat tour of Leiden’s canals and historical buildings.',
+            detailedDescription: 'Take a relaxing boat tour of Leiden, a city full of history and charm. The canals are lined with beautiful old buildings and you will pass by famous landmarks such as the National Museum of Antiquities and the Old Observatory.',
+            price: 18.00,
+            discount: 10,
+            expiresAt: '2024-11-30T23:59:59Z',
+            imageUrl: '../assets/leiden-boat.jpg',
+          },
+          {
+            id: '37',
+            name: 'Tulip Fields Boat Tour - 15% Off',
+            description: 'Sail through the beautiful tulip fields in the Netherlands.',
+            detailedDescription: 'During the spring season, enjoy a boat ride through the vibrant tulip fields in the Netherlands. Experience the colorful beauty of the flowers as they bloom and discover why the Dutch tulip industry is world-renowned.',
+            price: 60.00,
+            discount: 15,
+            expiresAt: '2024-05-31T23:59:59Z',
+            imageUrl: '../assets/tulip-fields.jpg',
+          },
+          {
+            id: '38',
+            name: 'IJsselmeer Lake Cruise - 20% Off',
+            description: 'Take a boat cruise around the IJsselmeer Lake.',
+            detailedDescription: 'Explore one of the largest lakes in the Netherlands, IJsselmeer, by boat. This cruise offers beautiful views of the surrounding villages, nature reserves, and iconic windmills, making it a perfect way to experience the Dutch countryside.',
+            price: 75.00,
+            discount: 20,
+            expiresAt: '2024-08-31T23:59:59Z',
+            imageUrl: '../assets/ijsselmeer-cruise.jpg',
+          },
+          {
+            id: '39',
+            name: 'Wadden Islands Cruise - 10% Off',
+            description: 'Explore the Wadden Islands on a relaxing boat tour.',
+            detailedDescription: 'Visit the stunning Wadden Islands, a UNESCO World Heritage site, with a guided boat tour. The islands are known for their unique landscapes, wildlife, and peaceful atmosphere. A perfect getaway for nature lovers.',
+            price: 80.00,
+            discount: 10,
+            expiresAt: '2024-09-30T23:59:59Z',
+            imageUrl: '../assets/wadden-islands.jpg',
+          },
+          {
+            id: '40',
+            name: 'Delta Works Boat Tour - 25% Off',
+            description: 'Visit the Delta Works, a famous Dutch engineering project, via boat.',
+            detailedDescription: 'Explore one of the world’s most impressive engineering projects, the Delta Works, which protects the Netherlands from flooding. A boat tour of this incredible structure provides a unique perspective on its construction and its importance for Dutch safety.',
+            price: 45.00,
+            discount: 25,
+            expiresAt: '2024-12-31T23:59:59Z',
+            imageUrl: '../assets/delta-works.jpg',
+          },
+        ],
+      },
 ];
+
 
 // const categories = [
 //     {
