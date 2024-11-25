@@ -1,17 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.scss';
 
 const Card = ({ deal }) => {
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Space') {
+      navigate(`/detail/${deal.id}`);
+    }
+  };
+
   return (
-    <div className="card">
-      <Link to={`/detail/${deal.id}`} className="card__link" key={deal.id}>
-        <img 
-          src={deal.imageUrl} 
-          alt={deal.name} 
-          className="card__image" 
-          loading="lazy" 
+    <div
+      className="card"
+      tabIndex="0"
+      onKeyDown={handleKeyDown}
+      role="link"
+      aria-label={`View details for ${deal.name}`}
+    >
+      <Link to={`/detail/${deal.id}`} className="card__link">
+        <img
+          src={deal.imageUrl}
+          alt={deal.name}
+          className="card__image"
+          loading="lazy"
         />
         <h3 className="card__header">{deal.name}</h3>
         <p className="card__description">{deal.description}</p>
