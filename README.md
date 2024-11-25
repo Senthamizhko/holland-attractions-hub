@@ -173,6 +173,26 @@ This project is designed with accessibility in mind to ensure usability for all 
 
 Accessibility was tested using tools like screen readers (VoiceOver) and dev tools.
 
+## Screenshots
+
+<img width="1728" alt="Screenshot 2024-11-26 at 00 02 30" src="https://github.com/user-attachments/assets/579ec3ce-0e43-4cc6-96ab-6f86b77b7d70">
+<img width="1728" alt="Screenshot 2024-11-26 at 00 02 43" src="https://github.com/user-attachments/assets/4054152b-74ca-4bb6-9bb0-0f1d43aefe64">
+<img width="1728" alt="Screenshot 2024-11-26 at 00 03 01" src="https://github.com/user-attachments/assets/36fa6f88-33e8-4f50-9fe0-9b7784093177">
+<img width="1727" alt="Screenshot 2024-11-26 at 00 03 30" src="https://github.com/user-attachments/assets/a4fb5aa8-1286-4c36-b08e-703e2d8b0ce5">
+<img width="1724" alt="Screenshot 2024-11-26 at 00 04 07" src="https://github.com/user-attachments/assets/3648b399-e105-43bb-bea1-3c60fb654a55">
+<img width="1722" alt="Screenshot 2024-11-26 at 00 04 18" src="https://github.com/user-attachments/assets/c2c64cd3-16db-4cbf-88fb-9deb8f651455">
+<img width="1717" alt="Screenshot 2024-11-26 at 00 04 27" src="https://github.com/user-attachments/assets/4d9ed33c-307f-47cd-877c-69dbc4aa7893">
+<img width="1728" alt="Screenshot 2024-11-26 at 00 04 41" src="https://github.com/user-attachments/assets/5ce5035d-32e3-44ba-86fc-4a429914efbf">
+<img width="1720" alt="Screenshot 2024-11-26 at 00 05 15" src="https://github.com/user-attachments/assets/cbf55cf9-6dfd-4728-a5f5-0d03aeba945d">
+<img width="627" alt="Screenshot 2024-11-26 at 00 06 24" src="https://github.com/user-attachments/assets/eadded2b-2cbc-40a7-bf64-78e50e63044b">
+<img width="427" alt="Screenshot 2024-11-26 at 00 06 43" src="https://github.com/user-attachments/assets/09df4859-35e9-46fd-b770-0adb458a6183">
+<img width="1722" alt="Screenshot 2024-11-26 at 00 10 01" src="https://github.com/user-attachments/assets/1d675fcf-2be1-4747-8759-7914901ba9a8">
+<img width="1727" alt="Screenshot 2024-11-26 at 00 12 00" src="https://github.com/user-attachments/assets/a784f474-3d90-4674-bc45-4c9d3d7cf32b">
+<img width="1072" alt="Screenshot 2024-11-26 at 00 18 00" src="https://github.com/user-attachments/assets/cc7109f9-4ced-468c-a0f5-dcc8764434a1">
+
+
+
+
 
 
 
