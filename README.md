@@ -35,8 +35,7 @@ Scalable & Efficient: Built for high performance and reliability, ensuring a smo
 This project is organized into three main directories:
 
 	- Client: Contains the React-based frontend code and assets and deployment files.
-	- Server: Houses the Node.js backend with GraphQL API, and server configurations and deployment files.
-	- Loadtest: Contains k6 load test file.
+	- Server: Houses the Node.js backend with GraphQL API, and server configurations and deployment files and loadtest k6 file
 
 ## Prerequisites
 
